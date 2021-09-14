@@ -36,6 +36,61 @@ local function PlayerIsInvisible()
 	return Script().StateWatcher:GetState("invisible") == true
 end
 
+-- Player Info
+local function PlayerInfoMenu()
+	local menu = UI.SimpleMenu()
+	menu:SetTitle("Player Info")
+	local playerid = GetLocalPlayerEntityId()
+	-- Items
+	local godIdx = menu:AddCheckbox("God Mode")
+	local invisibleIdx = menu:AddCheckbox("Invisible Mode")
+	local unlAmmoIdx = menu:AddCheckbox("Unlimited Ammo")
+	local noclipIdx = menu:AddCheckbox("Noclip")
+	local idButton = menu:AddButton("ID: " .. tostring(playerid), function()
+		print(playerid)
+	end)
+	local nameButton = menu:AddButton("Name: " .. tostring(GetEntityName(playerid)), function()
+		print(GetEntityName(playerid))
+	end)
+	local healthButton = menu:AddButton("Health: " .. tostring(GetCurrentHealth(playerid)), function()
+		print(GetCurrentHealth(playerid))
+	end)
+	local xPosButton = menu:AddButton("Position X: " .. tostring(GetEntityPosition(playerid, 0)), function()
+		print("Position X: " .. tostring(GetEntityPosition(playerid, 0)) .. " Y: " .. tostring(GetEntityPosition(playerid, 1)) .. " Z: " .. tostring(GetEntityPosition(playerid, 2)))
+	end)
+	local yPosButton = menu:AddButton("Position Y: " .. tostring(GetEntityPosition(playerid, 1)), function()
+		print("Position X: " .. tostring(GetEntityPosition(playerid, 0)) .. " Y: " .. tostring(GetEntityPosition(playerid, 1)) .. " Z: " .. tostring(GetEntityPosition(playerid, 2)))
+	end)
+	local zPosButton = menu:AddButton("Position Z: " .. tostring(GetEntityPosition(playerid, 2)), function()
+		print("Position X: " .. tostring(GetEntityPosition(playerid, 0)) .. " Y: " .. tostring(GetEntityPosition(playerid, 1)) .. " Z: " .. tostring(GetEntityPosition(playerid, 2)))
+	end)
+	local xRotButton = menu:AddButton("Rotation X: " .. tostring(GetEntityAngle(playerid, 0)), function()
+		print("Rotation X: " .. tostring(GetEntityAngle(playerid, 0)) .. " Y: " .. tostring(GetEntityAngle(playerid, 1)) .. " Z: " .. tostring(GetEntityAngle(playerid, 2)))
+	end)
+	local yRotButton = menu:AddButton("Rotation Y: " .. tostring(GetEntityAngle(playerid, 1)), function()
+		print("Rotation X: " .. tostring(GetEntityAngle(playerid, 0)) .. " Y: " .. tostring(GetEntityAngle(playerid, 1)) .. " Z: " .. tostring(GetEntityAngle(playerid, 2)))
+	end)
+	local zRotButton = menu:AddButton("Rotation Z: " .. tostring(GetEntityAngle(playerid, 2)), function()
+		print("Rotation X: " .. tostring(GetEntityAngle(playerid, 0)) .. " Y: " .. tostring(GetEntityAngle(playerid, 1)) .. " Z: " .. tostring(GetEntityAngle(playerid, 2)))
+	end)
+	-- Update
+	menu:OnUpdate(function()
+		menu:SetChecked(godIdx, PlayerHasGod())
+		menu:SetChecked(invisibleIdx, PlayerIsInvisible())
+		menu:SetChecked(unlAmmoIdx, PlayerHasUnlimitedAmmo())
+		menu:SetChecked(noclipIdx, ScriptHook.HasLocalPlayerNoclip())
+		menu:SetEntryText(healthButton, "Health: " .. tostring(GetCurrentHealth(playerid)))
+		menu:SetEntryText(xPosButton, "Position X: " .. tostring(GetEntityPosition(playerid, 0)))
+		menu:SetEntryText(yPosButton, "Position Y: " .. tostring(GetEntityPosition(playerid, 1)))
+		menu:SetEntryText(zPosButton, "Position Z: " .. tostring(GetEntityPosition(playerid, 2)))
+		menu:SetEntryText(xRotButton, "Rotatin X: " .. tostring(GetEntityAngle(playerid, 0)))
+		menu:SetEntryText(yRotButton, "Rotatin Y: " .. tostring(GetEntityAngle(playerid, 1)))
+		menu:SetEntryText(zRotButton, "Rotatin Z: " .. tostring(GetEntityAngle(playerid, 2)))
+	end)
+
+	return menu
+end
+
 -- Player
 local function PlayerMenu()
 	local menu = UI.SimpleMenu()
@@ -81,6 +136,9 @@ local function PlayerMenu()
 	menu:SelectListEntryByValue(speedIdx, tostring(speedData.normal))
 	menu:SelectListEntryByValue(shiftSpeedIdx, tostring(speedData.shift))
 	speedData.ready = true
+
+	-- Info
+	menu:AddButton("Player Info", "Shows all player information", PlayerInfoMenu)
 
 	-- Update
 	menu:OnUpdate(function()
