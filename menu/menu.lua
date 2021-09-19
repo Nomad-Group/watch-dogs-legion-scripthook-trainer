@@ -24,6 +24,7 @@ include("Camera.lua")
 include("Teleport.lua")
 include("Vehicle.lua")
 include("Environment.lua")
+include("Hacking.lua")
 
 for _,data in ipairs(SimpleTrainerMenuItems) do
 	menu:AddButton(unpack(data))
