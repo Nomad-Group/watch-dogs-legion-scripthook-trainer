@@ -24,7 +24,7 @@ local function CharacterMenu()
 		table.insert(snippets, snippet)
 		ctr = ctr + 1
 
-		menu:AddButton(name, snippet, function(_,_,_, idx)
+		menu:AddButton(name, function(_,_,_, idx)
 			ScriptHook.SetLocalPlayerCharacterCreation(snippets[idx - 2], true)
 		end)
 	end
