@@ -138,7 +138,8 @@ local function PlayerMenu()
 	speedData.ready = true
 
 	-- Info
-	menu:AddButton("Player Info", "Shows all player information", PlayerInfoMenu)
+	-- TODO: Currently experiencing a crash
+	--menu:AddButton("Player Info", "Shows all player information", PlayerInfoMenu)
 	
 	-- Update
 	menu:OnUpdate(function()
