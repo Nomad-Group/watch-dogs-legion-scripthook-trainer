@@ -1,29 +1,35 @@
 {
-    "author": "Nomad Group",
-    "enableAutoRefresh": true,
-    "entrypoint": "main.lua",
-    "keyBinds": {
-        "freecam": "F7",
-        "menu": "F4",
-        "noclip": "F6"
-    },
-    "keyBindsInfo": [
-        {
-            "info": "Toggle trainer menu. Navigation within the Trainer works with Arrows & Numpad keys.",
-            "name": "menu",
-            "text": "Trainer Menu"
-        },
-        {
-            "info": "Toggle freecam from anywhere.",
-            "name": "freecam",
-            "text": "Freecam"
-        },
-        {
-            "info": "Toggle noclip from anywhere.",
-            "name": "noclip",
-            "text": "Noclip"
-        }
-    ],
-    "name": "Simple Trainer",
-    "version": "1.0"
+	"author": "Nomad Group",
+	"enableAutoRefresh": true,
+	"entrypoint": "main.lua",
+	"keyBinds": {
+		"character-creator": "_Invalid",
+		"freecam": "F7",
+		"menu": "F4",
+		"noclip": "F6"
+	},
+	"keyBindsInfo": [
+		{
+			"info": "Toggle trainer menu. Navigation within the Trainer works with Arrows & Numpad keys.",
+			"name": "menu",
+			"text": "Trainer Menu"
+		},
+		{
+			"info": "Toggle Character Creator ingame",
+			"name": "character-creator",
+			"text": "Character Creator"
+		},
+		{
+			"info": "Toggle freecam from anywhere.",
+			"name": "freecam",
+			"text": "Freecam"
+		},
+		{
+			"info": "Toggle noclip from anywhere.",
+			"name": "noclip",
+			"text": "Noclip"
+		}
+	],
+	"name": "Simple Trainer",
+	"version": "1.0"
 }

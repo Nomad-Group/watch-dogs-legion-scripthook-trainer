@@ -4,6 +4,7 @@ include("commands/weather.lua")
 -- Settings
 include("settings/NoclipFreeCam.lua")
 include("settings/Notifications.lua")
+include("settings/CharacterCreator.lua")
 
 -- Menu
 include("menu/menu.lua")
