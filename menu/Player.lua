@@ -139,21 +139,7 @@ local function PlayerMenu()
 
 	-- Info
 	menu:AddButton("Player Info", "Shows all player information", PlayerInfoMenu)
-
-	-- Character Creator
-	menu:AddButton("Start Character Creator", function(_,_,_,_, idx, speed)
-		ScriptHook.SetLocalPlayerCharacterCreatorEnabled(true)
-		menu:Deactivate(true)
-	end)
-
-	menu:AddButton("Import Character Creation", function(_,_,_,_, idx, speed)
-		UI.SimpleTextInput("Import Character Creation", function(success, text)
-			if success then
-				ScriptHook.SetLocalPlayerCharacterCreation(text)
-			end
-		end, "Please paste the shared code in here", 255)
-	end)
-
+	
 	-- Update
 	menu:OnUpdate(function()
 		menu:SetChecked(godIdx, PlayerHasGod())

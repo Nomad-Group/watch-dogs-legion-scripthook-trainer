@@ -18,6 +18,7 @@ menu:SetTitle("SCRIPTHOOK TRAINER")
 -- Items
 SimpleTrainerMenuItems = {}
 include("Player.lua")
+include("Character.lua")
 include("Felony.lua")
 include("Affiliation.lua")
 include("Camera.lua")
