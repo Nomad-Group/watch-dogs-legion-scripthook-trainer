@@ -3,7 +3,7 @@
 	"enableAutoRefresh": true,
 	"entrypoint": "main.lua",
 	"keyBinds": {
-		"character-creator": "_Invalid",
+		"character-creator": "[Invalid]",
 		"freecam": "F7",
 		"menu": "F4",
 		"noclip": "F6"
